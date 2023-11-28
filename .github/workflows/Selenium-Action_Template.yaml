@@ -1,6 +1,7 @@
 name: Run Selenium On GitHub Action
 on:
-  workflow_dispatch:
+  push:
+    branches: [ main ]
 jobs:
   scrape:
     runs-on: ubuntu-latest
