@@ -16,6 +16,7 @@ options = [
   # Define window size here
    "--window-size=1200,1200",
     "--ignore-certificate-errors"
+   "--disable-notifications"
  
     #"--headless",
     #"--disable-gpu",
@@ -33,8 +34,16 @@ for option in options:
     
 driver = webdriver.Chrome(options = chrome_options)
 
-driver.get('http://github.com/abdessattar23')
-driver.save_screenshot('screenshot.png')
+driver.get('https://facebook.com')
+email_input = driver.find_element_by_id("email")
+email_input.send_keys("abdeldroid2@gmail.com")
+
+password_input = driver.find_element_by_id("pass")
+password_input.send_keys("Simou2007")
+
+login_button = driver.find_element_by_name("login")
+login_button.click()
+driver.save_screenshot('screenshot1.png')
 #print(driver.title)
 #with open('./GitHub_Action_Results.txt', 'w') as f:
 #    f.write(f"This was written with a GitHub action {driver.title}")
