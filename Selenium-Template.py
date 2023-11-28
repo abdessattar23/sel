@@ -38,7 +38,7 @@ driver = webdriver.Chrome(options = chrome_options)
 
 driver.get('https://facebook.com')
 email_input = driver.find_element(By.CSS_SELECTOR, "input#email")
-email_input.send_keys("abdeldroid2@gmail.com")
+email_input.send_keys("abdeldroid1@gmail.com")
 
 password_input = driver.find_element(By.CSS_SELECTOR, "input#pass")
 password_input.send_keys("Simou2007")
