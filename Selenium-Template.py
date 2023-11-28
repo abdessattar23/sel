@@ -42,7 +42,7 @@ email_input.send_keys("abdeldroid2@gmail.com")
 password_input = driver.find_element(By.CSS_SELECTOR, "input#pass")
 password_input.send_keys("Simou2007")
 
-login_button = driver.find_element(By.CSS_SELECTOR, "button[name='login']")
+login_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
 login_button.click()
 driver.save_screenshot('screenshot1.png')
 #print(driver.title)
