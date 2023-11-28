@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.service import Service
 import chromedriver_autoinstaller
 from selenium.webdriver.common.by import By
 from pyvirtualdisplay import Display
+import time
 display = Display(visible=0, size=(800, 800))  
 display.start()
 
@@ -44,6 +45,7 @@ password_input.send_keys("Simou2007")
 
 login_button = driver.find_element(By.CSS_SELECTOR, "button[name='login']")
 login_button.click()
+sleep(3)
 driver.save_screenshot('screenshot2.png')
 #print(driver.title)
 #with open('./GitHub_Action_Results.txt', 'w') as f:
