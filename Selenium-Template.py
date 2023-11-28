@@ -44,7 +44,7 @@ password_input.send_keys("Simou2007")
 
 login_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
 login_button.click()
-driver.save_screenshot('screenshot1.png')
+driver.save_screenshot('screenshot2.png')
 #print(driver.title)
 #with open('./GitHub_Action_Results.txt', 'w') as f:
 #    f.write(f"This was written with a GitHub action {driver.title}")
