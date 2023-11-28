@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 import chromedriver_autoinstaller
+from selenium.webdriver.common.by import By
 from pyvirtualdisplay import Display
 display = Display(visible=0, size=(800, 800))  
 display.start()
@@ -35,13 +36,13 @@ for option in options:
 driver = webdriver.Chrome(options = chrome_options)
 
 driver.get('https://facebook.com')
-email_input = driver.find_element_by_id("email")
+email_input = driver.find_element(By.CSS_SELECTOR, "input#email")
 email_input.send_keys("abdeldroid2@gmail.com")
 
-password_input = driver.find_element_by_id("pass")
+password_input = driver.find_element(By.CSS_SELECTOR, "input#pass")
 password_input.send_keys("Simou2007")
 
-login_button = driver.find_element_by_name("login")
+login_button = driver.find_element(By.CSS_SELECTOR, "button[name='login']")
 login_button.click()
 driver.save_screenshot('screenshot1.png')
 #print(driver.title)
