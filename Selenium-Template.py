@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from pyvirtualdisplay import Display
 import time
 import json
+from facebook-scraper import get_profile
 display = Display(visible=0, size=(800, 800))  
 display.start()
 
@@ -52,13 +53,15 @@ time.sleep(1)
 for i in range(10):
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 time.sleep(3)
-driver.save_screenshot('t2.png')
+driver.save_screenshot('t3.png')
 pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
 for anchor in pages:
     href_value = anchor.get_attribute("href")
-    values.append(href_value)
+    id = href_value.replace("https://facebook.com/","")
+    pr = get_profile(id)
+    values.append(pr)
 json = json.dumps(values) 
-with open('link3.json', "w", encoding="utf-8") as f:
+with open('link4.json', "w", encoding="utf-8") as f:
     f.write(json)
 
