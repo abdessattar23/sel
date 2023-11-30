@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.service import Service
 import chromedriver_autoinstaller
 from selenium.webdriver.common.by import By
 from pyvirtualdisplay import Display
+from bs4 import BeautifulSoup
 import time
 import json
 from facebook_scraper import get_profile
@@ -58,7 +59,9 @@ pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
 def get_data(driver, id) :
     driver.get('https://mbasic.facebook.com/' + id)
-    info = driver.execute_script('document.querySelector("div#contact-info").textContent;')
+    res = driver.page_source
+    soup = BeautifulSoup(res, "html.parser")
+    info = soup.find(id="contact-info")
     return info
 
   
