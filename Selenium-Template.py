@@ -10,18 +10,12 @@ import json
 display = Display(visible=0, size=(800, 800))  
 display.start()
 
-chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
-                                      # and if it doesn't exist, download it automatically,
-                                      # then add chromedriver to path
-
-chrome_options = webdriver.ChromeOptions()    
-# Add your options as needed    
+chrome_options = webdriver.ChromeOptions()
+# Add your options as needed
 options = [
-  # Define window size here
-   "--window-size=1200,1200",
-    "--ignore-certificate-errors"
-   "--disable-notifications"
- 
+    "--window-size=1200,1200",
+    "--ignore-certificate-errors",
+    "--disable-notifications",
     #"--headless",
     #"--disable-gpu",
     #"--window-size=1920,1200",
@@ -35,8 +29,7 @@ options = [
 for option in options:
     chrome_options.add_argument(option)
 
-    
-driver = webdriver.Chrome(options = chrome_options)
+driver = webdriver.Chrome(options=chrome_options)
 
 driver.get('https://facebook.com')
 email_input = driver.find_element(By.CSS_SELECTOR, "input#email")
@@ -56,20 +49,22 @@ time.sleep(3)
 driver.save_screenshot('t0.png')
 pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
-def get_data(driver, id) :
+
+
+def get_data(driver, id):
     driver.get('https://mbasic.facebook.com/' + id)
     res = driver.page_source
     soup = BeautifulSoup(res, "html.parser")
     info = soup.find(id="contact-info")
     return info
 
-  
+
 for anchor in pages:
     href_value = anchor.get_attribute("href")
-    id = href_value.replace("https://www.facebook.com/","")
+    id = href_value.replace("https://www.facebook.com/", "")
     contact = get_data(driver, id)
     values.append(contact)
-json = json.dumps(values) 
-with open('link4.json', "w", encoding="utf-8") as f:
-    f.write(json)
 
+json_data = json.dumps(values)
+with open('link4.json', "w", encoding="utf-8") as f:
+    f.write(json_data)
