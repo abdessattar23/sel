@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from pyvirtualdisplay import Display
 import time
 import json
-from facebook-scraper import get_profile
+from facebook_scraper import get_profile
 display = Display(visible=0, size=(800, 800))  
 display.start()
 
