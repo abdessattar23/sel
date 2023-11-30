@@ -49,15 +49,15 @@ login_button.click()
 time.sleep(3)
 driver.get('https://www.facebook.com/search/pages/?q=clothes')
 time.sleep(1)
-for i in range(8):
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-driver.save_screenshot('t.png')
+for i in range(10):
+    driver.send_keys(Keys.PAGE_DOWN)
+driver.save_screenshot('t2.png')
 pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
 for anchor in pages:
     href_value = anchor.get_attribute("href")
     values.append(href_value)
 json = json.dumps(values) 
-with open('link2.json', "w", encoding="utf-8") as f:
+with open('link3.json', "w", encoding="utf-8") as f:
     f.write(json)
 
