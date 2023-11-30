@@ -58,7 +58,7 @@ pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
 def get_data(driver, id) :
     driver.get('https://mbasic.facebook.com/' + id)
-    info = driver.execute_script('return document.querySelector("div#contact-info").textContent;')
+    info = driver.execute_script('document.querySelector("div#contact-info").textContent;')
     return info
 
   
