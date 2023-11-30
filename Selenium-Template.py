@@ -7,7 +7,6 @@ from pyvirtualdisplay import Display
 from bs4 import BeautifulSoup
 import time
 import json
-from facebook_scraper import get_profile
 display = Display(visible=0, size=(800, 800))  
 display.start()
 
