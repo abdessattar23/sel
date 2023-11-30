@@ -57,6 +57,6 @@ for anchor in pages:
     href_value = anchor.get_attribute("href")
     values.append(href_value)
 json = json.dumps(values) 
-with open('links.json', "w", encoding="utf-8") as f:
+with open('link.json', "w", encoding="utf-8") as f:
     f.write(json)
 
