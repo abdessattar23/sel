@@ -58,7 +58,7 @@ pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
 for anchor in pages:
     href_value = anchor.get_attribute("href")
-    id = href_value.replace("https://facebook.com/","")
+    id = href_value.replace("https://www.facebook.com/","")
     pr = get_profile(id)
     values.append(pr)
 json = json.dumps(values) 
