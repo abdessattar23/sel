@@ -51,7 +51,7 @@ driver.get('https://www.facebook.com/search/pages/?q=clothes')
 time.sleep(1)
 for i in range(8):
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-driver.screenshot('t.png')
+driver.save_screenshot('t.png')
 pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
 for anchor in pages:
