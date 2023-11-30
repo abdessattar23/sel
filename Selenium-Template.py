@@ -53,14 +53,20 @@ time.sleep(1)
 for i in range(10):
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 time.sleep(3)
-driver.save_screenshot('t3.png')
+driver.save_screenshot('t0.png')
 pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
+def get_data(driver, id) :
+    driver.get('https://mbasic.facebook.com/' + id)
+    info = driver.execute_script('return document.querySelector("div#contact-info").textContent;')
+    return info
+
+  
 for anchor in pages:
     href_value = anchor.get_attribute("href")
     id = href_value.replace("https://www.facebook.com/","")
-    pr = get_profile(id)
-    values.append(pr)
+    contact = get_data(driver, id)
+    values.append(contact)
 json = json.dumps(values) 
 with open('link4.json', "w", encoding="utf-8") as f:
     f.write(json)
