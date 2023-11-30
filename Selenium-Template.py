@@ -49,7 +49,7 @@ login_button.click()
 time.sleep(3)
 driver.get('https://www.facebook.com/search/pages/?q=clothes')
 time.sleep(1)
-pages = driver.find_element(By.CSS_SELECTOR, "a[role='presentation']")
+pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
 for anchor in pages:
     href_value = anchor.get_attribute("href")
