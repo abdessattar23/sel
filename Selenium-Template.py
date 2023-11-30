@@ -46,13 +46,9 @@ password_input.send_keys("Simou2007")
 login_button = driver.find_element(By.CSS_SELECTOR, "button[name='login']")
 login_button.click()
 time.sleep(3)
-driver.get('https://www.facebook.com/search_results/?q=clothes')
+driver.get('https://www.facebook.com/search/pages/?q=clothes')
 #pages = driver.find_element(By.CSS_SELECTOR, "div[aria-label='الصفحات']")
 time.sleep(1)
-sc = driver.page_source
-ur = driver.current_url
-#driver.save_screenshot('screenshot4.png')
-print(ur)
-with open('./fb.html', 'w') as f:
-    f.write(sc)
+driver.save_screenshot('screenshot5.png')
+
 
