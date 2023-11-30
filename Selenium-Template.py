@@ -51,12 +51,13 @@ driver.get('https://www.facebook.com/search/pages/?q=clothes')
 time.sleep(1)
 for i in range(8):
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+driver.screenshot('t.png')
 pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
 for anchor in pages:
     href_value = anchor.get_attribute("href")
     values.append(href_value)
 json = json.dumps(values) 
-with open('link.json', "w", encoding="utf-8") as f:
+with open('link2.json', "w", encoding="utf-8") as f:
     f.write(json)
 
