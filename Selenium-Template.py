@@ -49,6 +49,8 @@ time.sleep(3)
 driver.get('https://www.facebook.com/search/pages/?q=clothes')
 #pages = driver.find_element(By.CSS_SELECTOR, "div[aria-label='الصفحات']")
 time.sleep(1)
-driver.save_screenshot('screenshot5.png')
-
+s = driver.page_source
+#driver.save_screenshot('screenshot5.png')
+with open('fb2.html', "w", encoding="utf-8") as f:
+    f.write(s)
 
