@@ -5,6 +5,7 @@ import chromedriver_autoinstaller
 from selenium.webdriver.common.by import By
 from pyvirtualdisplay import Display
 import time
+import json
 display = Display(visible=0, size=(800, 800))  
 display.start()
 
@@ -47,10 +48,13 @@ login_button = driver.find_element(By.CSS_SELECTOR, "button[name='login']")
 login_button.click()
 time.sleep(3)
 driver.get('https://www.facebook.com/search/pages/?q=clothes')
-#pages = driver.find_element(By.CSS_SELECTOR, "div[aria-label='الصفحات']")
 time.sleep(1)
-s = driver.page_source
-#driver.save_screenshot('screenshot5.png')
-with open('fb2.html', "w", encoding="utf-8") as f:
-    f.write(s)
+pages = driver.find_element(By.CSS_SELECTOR, "a[role='presentation']")
+values = []
+for anchor in pages:
+    href_value = anchor.get_attribute("href")
+    values.append(href_value)
+json = json.dumps(values) 
+with open('links.json', "w", encoding="utf-8") as f:
+    f.write(json)
 
