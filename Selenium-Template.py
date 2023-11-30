@@ -50,7 +50,8 @@ time.sleep(3)
 driver.get('https://www.facebook.com/search/pages/?q=clothes')
 time.sleep(1)
 for i in range(10):
-    driver.send_keys(Keys.PAGE_DOWN)
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+time.sleep(3)
 driver.save_screenshot('t2.png')
 pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
 values = []
