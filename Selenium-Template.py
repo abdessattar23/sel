@@ -60,6 +60,7 @@ def r(pg):
     # Print the results
     for result in reslts:
         print(result)
+        print('hello')
 
 
 def get_data(driver, id):
