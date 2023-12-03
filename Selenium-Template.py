@@ -55,7 +55,7 @@ values = []
 def r(pg):
     sp = BeautifulSoup(pg, 'html.parser')
     #rsp = BeautifulSoup(page_source, 'html.parser')
-    reslts = sp.find_all(text=re.compile(r'(?<=<)[^<>]*@[^<>]*(?=)'))
+    reslts = sp.find_all(string=re.compile(r'(?<=<)[^<>]*@[^<>]*(?=)'))
 
     # Print the results
     for result in reslts:
