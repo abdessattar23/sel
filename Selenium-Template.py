@@ -58,7 +58,7 @@ def r(pg):
     reslts = sp.find_all(text=re.compile(r'(?<=<)[^<>]*@[^<>]*(?=)'))
 
     # Print the results
-    for result in results:
+    for result in reslts:
         print(result)
 
 
