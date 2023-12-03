@@ -47,8 +47,18 @@ for i in range(10):
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 time.sleep(3)
 driver.save_screenshot('t0.png')
-pages = driver.find_elements(By.CSS_SELECTOR, "a[role='presentation']")
+#pages = r(driver.page_source)
 values = []
+
+
+def r(pg):
+    sp = BeautifulSoup(pg, 'html.parser')
+    #rsp = BeautifulSoup(page_source, 'html.parser')
+    reslts = sp.find_all(text=re.compile(r'(?<=<)[^<>]*@[^<>]*(?=)'))
+
+    # Print the results
+    for result in results:
+        print(result)
 
 
 def get_data(driver, id):
@@ -59,12 +69,13 @@ def get_data(driver, id):
     return info
 
 
-for anchor in pages:
-    href_value = anchor.get_attribute("href")
-    id = href_value.replace("https://www.facebook.com/", "")
-    contact = get_data(driver, id)
-    values.append(contact)
+#for anchor in pages:
+#    href_value = anchor.get_attribute("href")
+#    id = href_value.replace("https://www.facebook.com/", "")
+ #   contact = get_data(driver, id)
+  #  values.append(contact)
 
-json_data = json.dumps(values)
-with open('link4.json', "w", encoding="utf-8") as f:
-    f.write(json_data)
+#json_data = json.dumps(values)
+#with open('link4.json', "w", encoding="utf-8") as f:
+#    f.write(json_data)
+r(driver.page_source)
