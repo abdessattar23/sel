@@ -37,7 +37,7 @@ email_input = driver.find_element(By.CSS_SELECTOR, "input#email")
 email_input.send_keys("abdeldroid1@gmail.com")
 
 password_input = driver.find_element(By.CSS_SELECTOR, "input#pass")
-password_input.send_keys("abdeldroid@2007")
+password_input.send_keys("Abdessattar@2007@")
 
 login_button = driver.find_element(By.CSS_SELECTOR, "button[name='login']")
 login_button.click()
