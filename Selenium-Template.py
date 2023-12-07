@@ -63,11 +63,11 @@ def r(pg):
        page_name = result.find('div', {'class': 'clearfix'}).text.strip()
 
        page_link = result.find('a', href=True)['href']
-        in = {
+       in = {
           'name' : page_name,
-            'link' : page_link
-           }
-        ps.append(in)
+          'link' : page_link
+       }
+       ps.append(in)
        print(f'Page Name: {page_name}')
        print(f'Page Link: {page_link}')
        print('---')
