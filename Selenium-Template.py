@@ -55,6 +55,7 @@ values = []
 
 def r(pg):
     sp = BeautifulSoup(pg, 'html.parser')
+    ps = []
     #rsp = BeautifulSoup(page_source, 'html.parser')
    # reslts = sp.find_all(string=re.compile(r'(?<=<)[^<>]*@[^<>]*(?=)'))
     page_results = sp.find_all('div', {'class': 'search-result'})    
@@ -62,6 +63,11 @@ def r(pg):
        page_name = result.find('div', {'class': 'clearfix'}).text.strip()
 
        page_link = result.find('a', href=True)['href']
+        in = {
+          'name' : page_name,
+            'link' : page_link
+           }
+        ps.append(in)
        print(f'Page Name: {page_name}')
        print(f'Page Link: {page_link}')
        print('---')
@@ -89,6 +95,6 @@ def get_data(driver, id):
   #  values.append(contact)
 
 #json_data = json.dumps(values)
-#with open('link4.json', "w", encoding="utf-8") as f:
-#    f.write(json_data)
+with open('link4.json', "w", encoding="utf-8") as f:
+    f.write(ps)
 r(driver.page_source)
