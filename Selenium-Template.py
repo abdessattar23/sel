@@ -58,12 +58,15 @@ def r(pg):
     ps = []
     page_results = sp.find_all('div', {'class': 'search-result'})    
     all = sp.find_all('div', {'role': 'article'})
+    l = []
     for s in all:
         pat = r'href="https://www\.facebook\.com/(.*?)"'
-        g = re.findall(pat,str(s))
+        #g = re.findall(pat,str(s))
+        li = s.find('a', {'role': 'presentation'}).get('href')
+        l.append(li)
         #print(str(s))
         with open('articles2.txt', 'w') as x:
-            x.write(str(g))
+            json.dump(l, x)
         
     for result in page_results:
         page_name = result.find('div', {'class': 'clearfix'}).text.strip()
