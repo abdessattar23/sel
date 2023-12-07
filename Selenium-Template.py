@@ -62,7 +62,7 @@ def r(pg):
     for s in all:
         pat = r'href="https://www\.facebook\.com/(.*?)"'
         #g = re.findall(pat,str(s))
-        li = s.find('a', {'role': 'presentation'}).get('href')
+        li = s.find('a', attrs={'role': 'presentation'}).get('href')
         l.append(li)
         #print(str(s))
         with open('articles2.txt', 'w') as x:
