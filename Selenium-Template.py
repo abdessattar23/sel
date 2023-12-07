@@ -73,7 +73,7 @@ def r(pg):
     with open('results2.json', 'w') as file:
         json.dump(ps, file)
         
-    with open('sc.txt', 'w') as sc:
+    with open('sc1.txt', 'w') as sc:
         sc.write(pg)
     print(f'Data saved to results.json successfully.')
 
