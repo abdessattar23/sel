@@ -58,8 +58,9 @@ def r(pg):
     ps = []
     page_results = sp.find_all('div', {'class': 'search-result'})    
     all = sp.find_all('div', {'role': 'article'})
-    with open('articles.txt', 'w') as x:
-        x.write(all)
+     with open('articles.txt', 'w') as x:
+         x.write(str(all))
+        
         
     for result in page_results:
         page_name = result.find('div', {'class': 'clearfix'}).text.strip()
