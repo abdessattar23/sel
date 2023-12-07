@@ -62,11 +62,10 @@ def r(pg):
     for result in page_results:
        page_name = result.find('div', {'class': 'clearfix'}).text.strip()
 
-       page_link = result.find('a', href=True)['href']
-       in = {
-          'name' : page_name,
-          'link' : page_link
-       }
+       page_info = {
+        'Page Name': page_name,
+        'Page Link': page_link
+}
        ps.append(in)
        print(f'Page Name: {page_name}')
        print(f'Page Link: {page_link}')
@@ -95,6 +94,9 @@ def get_data(driver, id):
   #  values.append(contact)
 
 #json_data = json.dumps(values)
-with open('link4.json', "w", encoding="utf-8") as f:
-    f.write(ps)
+with open('links5.json', 'w') as file:
+    json.dump(ps, file)
+
+print(f'Data saved to links5.json successfully.')
+
 r(driver.page_source)
