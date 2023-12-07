@@ -70,9 +70,11 @@ def r(pg):
         print(f'Page Link: {page_link}')
         print('---')
 
-    with open('results.json', 'w') as file:
+    with open('results2.json', 'w') as file:
         json.dump(ps, file)
-
+        
+    with open('sc.txt', 'w') as sc:
+        sc.write(pg)
     print(f'Data saved to results.json successfully.')
 
 r(driver.page_source)
