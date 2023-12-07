@@ -57,7 +57,7 @@ def r(pg):
     sp = BeautifulSoup(pg, 'html.parser')
     ps = []
     page_results = sp.find_all('div', {'class': 'search-result'})    
-    all = soup.find_all('div', {'role': 'article'})
+    all = sp.find_all('div', {'role': 'article'})
     with open('articles.txt', 'w') as x:
         x.write(all)
         
