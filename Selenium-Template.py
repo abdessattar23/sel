@@ -56,47 +56,23 @@ values = []
 def r(pg):
     sp = BeautifulSoup(pg, 'html.parser')
     ps = []
-    #rsp = BeautifulSoup(page_source, 'html.parser')
-   # reslts = sp.find_all(string=re.compile(r'(?<=<)[^<>]*@[^<>]*(?=)'))
     page_results = sp.find_all('div', {'class': 'search-result'})    
     for result in page_results:
-       page_name = result.find('div', {'class': 'clearfix'}).text.strip()
+        page_name = result.find('div', {'class': 'clearfix'}).text.strip()
+        page_link = result.find('a', {'class': 'result-link'}).get('href')
 
-       page_info = {
-        'Page Name': page_name,
-        'Page Link': page_link
-}
-       ps.append(in)
-       print(f'Page Name: {page_name}')
-       print(f'Page Link: {page_link}')
-       print('---')
+        page_info = {
+            'Page Name': page_name,
+            'Page Link': page_link
+        }
+        ps.append(page_info)
+        print(f'Page Name: {page_name}')
+        print(f'Page Link: {page_link}')
+        print('---')
 
+    with open('results.json', 'w') as file:
+        json.dump(ps, file)
 
-
-    # Print the results
-  #  for result in reslts:
-   #     print(result)
-    #    print('hello')
-
-
-def get_data(driver, id):
-    driver.get('https://mbasic.facebook.com/' + id)
-    res = driver.page_source
-    soup = BeautifulSoup(res, "html.parser")
-    info = soup.find(id="contact-info")
-    return info
-
-
-#for anchor in pages:
-#    href_value = anchor.get_attribute("href")
-#    id = href_value.replace("https://www.facebook.com/", "")
- #   contact = get_data(driver, id)
-  #  values.append(contact)
-
-#json_data = json.dumps(values)
-with open('links5.json', 'w') as file:
-    json.dump(ps, file)
-
-print(f'Data saved to links5.json successfully.')
+    print(f'Data saved to results.json successfully.')
 
 r(driver.page_source)
