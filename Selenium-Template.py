@@ -57,10 +57,14 @@ def r(pg):
     sp = BeautifulSoup(pg, 'html.parser')
     ps = []
     page_results = sp.find_all('div', {'class': 'search-result'})    
+    all = soup.find_all('div', {'role': 'article'})
+    with open('articles.txt', 'w') as x:
+        x.write(all)
+        
     for result in page_results:
         page_name = result.find('div', {'class': 'clearfix'}).text.strip()
         page_link = result.find('a', {'class': 'result-link'}).get('href')
-
+        
         page_info = {
             'Page Name': page_name,
             'Page Link': page_link
