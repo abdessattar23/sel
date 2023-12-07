@@ -61,9 +61,8 @@ def r(pg):
     for s in all:
         pat = r'href="https://www\.facebook\.com/(.*?)"'
         g = re.findall(pat,s)
-    with open('articles2.txt', 'w') as x:
-        x.write(str(g))
-        
+        with open('articles2.txt', 'w') as x:
+            x.write(str(g))
         
     for result in page_results:
         page_name = result.find('div', {'class': 'clearfix'}).text.strip()
