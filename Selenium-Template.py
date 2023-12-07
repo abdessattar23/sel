@@ -56,12 +56,22 @@ values = []
 def r(pg):
     sp = BeautifulSoup(pg, 'html.parser')
     #rsp = BeautifulSoup(page_source, 'html.parser')
-    reslts = sp.find_all(string=re.compile(r'(?<=<)[^<>]*@[^<>]*(?=)'))
+   # reslts = sp.find_all(string=re.compile(r'(?<=<)[^<>]*@[^<>]*(?=)'))
+    page_results = sp.find_all('div', {'class': 'search-result'})    
+    for result in page_results:
+       page_name = result.find('div', {'class': 'clearfix'}).text.strip()
+
+       page_link = result.find('a', href=True)['href']
+       print(f'Page Name: {page_name}')
+       print(f'Page Link: {page_link}')
+       print('---')
+
+
 
     # Print the results
-    for result in reslts:
-        print(result)
-        print('hello')
+  #  for result in reslts:
+   #     print(result)
+    #    print('hello')
 
 
 def get_data(driver, id):
