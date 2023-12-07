@@ -58,8 +58,11 @@ def r(pg):
     ps = []
     page_results = sp.find_all('div', {'class': 'search-result'})    
     all = sp.find_all('div', {'role': 'article'})
-    with open('articles.txt', 'w') as x:
-        x.write(str(all))
+    for s in all:
+        pat = r'href="https://www\.facebook\.com/(.*?)"'
+        g = re.findall(pat,s)
+    with open('articles2.txt', 'w') as x:
+        x.write(str(g))
         
         
     for result in page_results:
