@@ -54,7 +54,7 @@ values = []
 
 def get_data(url, driver):
     driver.get(url)
-    driver.save_screenshot(url+'png')
+    driver.save_screenshot('{url}.png')
 def r(pg):
     sp = BeautifulSoup(pg, 'html.parser')
     ps = []
