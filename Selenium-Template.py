@@ -52,7 +52,9 @@ driver.save_screenshot('t0.png')
 #pages = r(driver.page_source)
 values = []
 
-
+def get_data(url, driver):
+    driver.get(url)
+    driver.save_screenshot(url+'png')
 def r(pg):
     sp = BeautifulSoup(pg, 'html.parser')
     ps = []
@@ -67,7 +69,7 @@ def r(pg):
         #print(str(s))
         with open('articles2.txt', 'w') as x:
             json.dump(l, x)
-        
+        get_data(li, driver)
     for result in page_results:
         page_name = result.find('div', {'class': 'clearfix'}).text.strip()
         page_link = result.find('a', {'class': 'result-link'}).get('href')
