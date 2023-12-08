@@ -45,9 +45,9 @@ time.sleep(3)
 driver.save_screenshot('screenshot2.png')
 driver.get('https://www.facebook.com/search/pages/?q=clothes')
 time.sleep(1)
-for i in range(10):
+for i in range(40):
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-time.sleep(3)
+time.sleep(4)
 driver.save_screenshot('t0.png')
 #pages = r(driver.page_source)
 values = []
