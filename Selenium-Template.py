@@ -43,7 +43,7 @@ login_button = driver.find_element(By.CSS_SELECTOR, "button[name='login']")
 login_button.click()
 time.sleep(3)
 driver.save_screenshot('screenshot2.png')
-driver.get('https://www.facebook.com/search/pages/?q=clothes')
+driver.get('https://www.facebook.com/search/pages/?q=shoes+shop')
 time.sleep(1)
 for i in range(40):
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
